@@ -14,22 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet private var selectSegmentedControl: UISegmentedControl!
     @IBOutlet private var totalLabel: UILabel!
     
-    
-    
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    
-    
-    }
     @IBAction func calcButton(_ sender: Any) {
         let number1 = Int(textField1.text ?? "") ?? 0
         let number2 = Int(textField2.text ?? "") ?? 0
-        var result:Int? = 0
-        switch selectSegmentedControl.selectedSegmentIndex{
+
+        let result: Int
+
+        switch selectSegmentedControl.selectedSegmentIndex {
         case 0:
             result = number1 + number2
         case 1:
@@ -37,7 +28,7 @@ class ViewController: UIViewController {
         case 2:
             result = number1 * number2
         case 3:
-            guard number2 != 0 else{
+            guard number2 != 0 else {
                 totalLabel.text = "割る数には０以外を入力してください"
                 return
             }
@@ -45,8 +36,7 @@ class ViewController: UIViewController {
         default:
             return
         }
-        totalLabel.text = String(result!)
+
+        totalLabel.text = String(result)
     }
 }
-
-
